@@ -1,0 +1,55 @@
+.roles-container {
+  max-width: 800px;
+}
+
+/* GRID */
+.roles-grid {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+/* ROLE CARD */
+.role-card {
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  cursor: pointer;
+  background: #f4f4f4;
+  transition: 0.2s;
+}
+
+/* HOVER */
+.role-card:hover {
+  background: #e0e0e0;
+}
+
+/* ACTIVE (NEW) */
+.role-card.active {
+  border: 2px solid #2196f3;
+  background: #e3f2fd;
+}
+
+/* PERMISSIONS */
+.permissions-section {
+  margin-top: 10px;
+}
+
+.permissions-list {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.permission-card {
+  padding: 10px 15px;
+  background: #2196f3;
+  color: white;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+/* EMPTY TEXT */
+.empty-text {
+  color: #777;
+}
