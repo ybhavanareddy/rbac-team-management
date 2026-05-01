@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import "./Users.css";
 import axios from "axios";
+const API = import.meta.env.VITE_API_URL;
 
 function Users() {
   const [users, setUsers] = useState([]);
@@ -13,7 +14,7 @@ const[error,setError] = useState("");
 
   const fetchUsers = async()=>{
     try{
-        const res = await axios.get("http://localhost:5000/api/users");
+        const res = await axios.get(`${API}/api/users`);
         
         setUsers(res.data.users)
     }catch(err){
@@ -39,7 +40,7 @@ const[error,setError] = useState("");
 
     try{
         setError("");
-        await axios.post("http://localhost:5000/api/users",{name,email});
+        await axios.post(`${API}/api/users`, { name, email });
         
         fetchUsers();
 

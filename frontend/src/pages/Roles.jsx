@@ -1,6 +1,8 @@
 import { useState,useEffect } from "react";
 import "./Roles.css";
 import axios from "axios";
+const API = import.meta.env.VITE_API_URL;
+
 function Roles() {
   
   const [roles, setRoles] = useState([]);
@@ -10,7 +12,7 @@ function Roles() {
   //fetch roles 
   const fetchRoles = async()=>{
     try{
-        const res = await axios.get("http://localhost:5000/api/roles");
+        const res = await axios.get(`${API}/api/roles`);
         setRoles(res.data.data)
     }catch(err){
         console.log(err);
