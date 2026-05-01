@@ -23,7 +23,7 @@ This is a MERN stack application that manages users, roles, and permissions usin
 
 * POST /api/users
 * GET /api/users
-* DELETE /api/users/:id
+
 
 ### Roles
 

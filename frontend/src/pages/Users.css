@@ -1,5 +1,6 @@
 .users-container {
   max-width: 600px;
+
 }
 
 /* FORM */
@@ -13,7 +14,7 @@
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  flex: 1;
+  
 }
 
 .user-form button {
@@ -27,19 +28,27 @@
 
 /* LIST */
 .user-list {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 15px;
 }
 
 .user-card {
-  border: 1px solid #ddd;
-  padding: 12px;
-  border-radius: 6px;
-  background: #f9f9f9;
+  border: 1px solid #e0e0e0;
+  padding: 15px;
+  border-radius: 10px;
+  background: #ffffff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
   transition: 0.2s;
 }
 
 .user-card:hover {
-  background: #f1f1f1;
+  transform: translateY(-3px);
+}
+
+
+.error-text {
+  color: red;
+  margin-top: 10px;
+  font-size: 14px;
 }

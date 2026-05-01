@@ -4,33 +4,36 @@
 
 /* GRID */
 .roles-grid {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: 15px;
-  margin-bottom: 25px;
+  margin-top: 20px;
 }
 
 /* ROLE CARD */
 .role-card {
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+  padding: 15px;
+  border-radius: 10px;
+  background: #ffffff;
+  text-align: center;
   cursor: pointer;
-  background: #f4f4f4;
   transition: 0.2s;
 }
 
 /* HOVER */
 .role-card:hover {
-  background: #e0e0e0;
+  transform: translateY(-3px);
+  box-shadow: 0 3px 10px rgba(0,0,0,0.08);
 }
 
-/* ACTIVE (NEW) */
+
 .role-card.active {
   border: 2px solid #2196f3;
   background: #e3f2fd;
 }
 
-/* PERMISSIONS */
+
 .permissions-section {
   margin-top: 10px;
 }
@@ -49,7 +52,6 @@
   font-size: 14px;
 }
 
-/* EMPTY TEXT */
 .empty-text {
   color: #777;
 }

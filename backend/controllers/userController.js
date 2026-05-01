@@ -56,29 +56,3 @@ export const getAllUsers = async(req,res)=>{
     }
 }
 
-export const deleteUser = async(req,res)=>{
-    try{
-        const user_id = req.params.id;
-        
-        const existingUser = await User.findById(user_id);
-        if(!existingUser){
-            return res.status(404).json({
-                success:false,
-                message:"User Not Fund"
-            })
-        }
-        await User.findByIdAndDelete(user_id);
-
-        return res.status(200).json({
-            success:true,
-            message:"User deleted successfully"
-        });
-
-    }
-    catch(err){
-        return res.status(500).json({
-                success:false,
-                message:err.message
-            })
-    }
-}

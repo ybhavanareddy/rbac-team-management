@@ -7,6 +7,7 @@ function Users() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
 
+const[error,setError] = useState("");
 
   //fectch users 
 
@@ -20,9 +21,12 @@ function Users() {
     }
   }
 
+ 
+
   //fecth users on page load
   useEffect(()=>{
-    fetchUsers()
+    fetchUsers();
+    
   },[])
 
 
@@ -34,6 +38,7 @@ function Users() {
 
 
     try{
+        setError("");
         await axios.post("http://localhost:5000/api/users",{name,email});
         
         fetchUsers();
@@ -41,10 +46,16 @@ function Users() {
         setName("");
         setEmail("");
     }catch(err){
-        console.log(err);
+        if (err.response && err.response.data.message) {
+      setError(err.response.data.message);
+        } else {
+        setError("Something went wrong");
+        }
     }
 
 };
+
+
 
   return (
     <div className="users-container">
@@ -53,6 +64,7 @@ function Users() {
       {/* FORM */}
       <form className="user-form" onSubmit={handleSubmit}>
         <input
+          required
           type="text"
           placeholder="Enter name"
           value={name}
@@ -60,6 +72,7 @@ function Users() {
         />
 
         <input
+            required
           type="email"
           placeholder="Enter email"
           value={email}
@@ -68,21 +81,27 @@ function Users() {
 
         <button type="submit">Add User</button>
       </form>
+      {error && <p className="error-text">{error}</p>}
 
       {/* LIST */}
       <div className="user-list">
         {users.length === 0 ? (
           <p>No users yet</p>
         ) : (
-          users.map((user, index) => (
-            <div key={index} className="user-card">
+          users.map((user) => (
+            <div key={user._id} className="user-card">
               <p><strong>{user.name}</strong></p>
               <p>{user.email}</p>
             </div>
           ))
         )}
       </div>
+
+
+
+   
     </div>
+    
   );
 }
 

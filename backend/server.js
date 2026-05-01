@@ -6,7 +6,6 @@ import userRoutes from './routes/userRoutes.js';
 import permissionRoutes from './routes/permissionRoutes.js';
 import roleRoutes from './routes/roleRoutes.js';
 
-
 import connectDB from './config/db.js'
 
 dotenv.config();
@@ -22,7 +21,6 @@ app.use(cors())
 app.use('/api/users',userRoutes);
 app.use('/api/permissions',permissionRoutes);
 app.use('/api/roles',roleRoutes);
-
 
 
 
